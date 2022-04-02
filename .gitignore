@@ -33,3 +33,11 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# intellij
+.idea/*
+*.iml
+
+# vim buffers
+*.swp
+*.swo
