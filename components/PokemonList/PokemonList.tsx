@@ -2,7 +2,7 @@ import React from "react";
 
 const PokemonList = () => {
     return (
-        <div>Pokemon index</div>
+        <div id="pokemon-list">Pokemon index</div>
     );
 }
 

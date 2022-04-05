@@ -1,6 +1,8 @@
+/// <reference types="cypress" />
+
 import React from 'react'
-import {mount} from '@cypress/react'
-import {PokemonList} from '../../components/PokemonList'
+import { mount } from '@cypress/react'
+import PokemonList from '../../components/PokemonList'
 
 describe('PokemonList', () => {
     it('renders the pokemon list component', () => {

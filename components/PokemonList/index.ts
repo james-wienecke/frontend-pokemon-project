@@ -1,3 +1,3 @@
 import PokemonList from "./PokemonList";
 
-export { PokemonList };
+export default PokemonList;
