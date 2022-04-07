@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+import PokemonList from '../components/PokemonList'
 import styles from '../styles/Home.module.css'
 
 const Home: NextPage = () => {
@@ -16,6 +17,7 @@ const Home: NextPage = () => {
         <h1 className={styles.title}>
           Pokemon Explorer
         </h1>
+        <PokemonList />
       </main>
 
       <footer className={styles.footer}>
