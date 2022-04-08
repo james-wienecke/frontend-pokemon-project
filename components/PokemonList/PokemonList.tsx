@@ -1,9 +1,11 @@
 import React from "react";
 
-const PokemonList = () => {
+function PokemonList() {
     return (
-        <div id="pokemon-list">Pokemon index</div>
-    );
+        <section data-testid="pokemon-list-container">
+            PokemonList
+        </section>
+    )
 }
 
 export default PokemonList;

@@ -1,15 +1,15 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import Image from 'next/image'
+import PokemonList from '../components/PokemonList'
 import styles from '../styles/Home.module.css'
-
-import { PokemonList } from '../components/PokemonList'
 
 const Home: NextPage = () => {
   return (
     <div className={styles.container}>
       <Head>
         <title>Pokemon API Explorer</title>
-        <meta name="description" content="Frontend-focused project for exploring and consuming the Pokemon API." />
+        <meta name="description" content="Frontend focused simple project for exploring the Pokemon API." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -17,12 +17,7 @@ const Home: NextPage = () => {
         <h1 className={styles.title}>
           Pokemon Explorer
         </h1>
-
-        <section>
-          {/* pokemon go here */}
-          <PokemonList />
-        </section>
-
+        <PokemonList />
       </main>
 
       <footer className={styles.footer}>
