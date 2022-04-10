@@ -9,7 +9,6 @@ function PokemonElement(props: {pkmn: number}) {
     useEffect(() => {
         const getPokemon = async () => {
             const res = await PokeAPI.Pokemon.fetch(props.pkmn + 1);
-            // console.log(res);
             return res;
         }
         getPokemon().then(res => {

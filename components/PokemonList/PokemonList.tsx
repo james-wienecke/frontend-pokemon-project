@@ -16,7 +16,6 @@ function PokemonList() {
 
     return (
         <section data-testid="pokemon-list-container">
-            PokemonList
             {createListElements()}
         </section>
     )
