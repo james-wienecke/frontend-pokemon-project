@@ -16,4 +16,11 @@ describe("PokemonList component", () => {
         expect(pokemonItems).not.toBeUndefined();
     });
 
+    it("displays loading spinner while waiting for pokeapi response", () => {
+        render(<PokemonList />);
+
+        const loadingItem = screen.getByText(/loading pokemon with id 1\b/i);
+        expect(loadingItem).toBeInTheDocument();
+    })
+
 })
