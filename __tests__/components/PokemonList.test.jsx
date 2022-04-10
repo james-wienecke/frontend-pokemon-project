@@ -23,4 +23,10 @@ describe("PokemonList component", () => {
         expect(loadingItem).toBeInTheDocument();
     })
 
+    it("starts off looking for the first few pokemon by id", async () => {
+        render(<PokemonList />);
+
+        const bulbasaurItem = await screen.findByText(/bulbasaur/i);
+        expect(bulbasaurItem).toBeInTheDocument();
+    })
 })
