@@ -13,7 +13,7 @@ describe("PokemonList component", () => {
         render(<PokemonList />);
 
         const pokemonItems = screen.getAllByTestId(/pokemon-item/);
-        expect(pokemonItems).toBeInTheDocument();
+        expect(pokemonItems).not.toBeUndefined();
     });
 
 })
