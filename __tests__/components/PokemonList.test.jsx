@@ -9,4 +9,11 @@ describe("PokemonList component", () => {
         expect(pokemonList).toBeInTheDocument();
     })
 
+    it("contains PokemonItem components", () => {
+        render(<PokemonList />);
+
+        const pokemonItems = screen.getAllByTestId(/pokemon-item/);
+        expect(pokemonItems).toBeInTheDocument();
+    });
+
 })
