@@ -4,11 +4,12 @@ import PokemonElement from "../PokemonElement";
 function PokemonList() {
 
     const [limit, setLimit] = useState(10);
+    const [offset, setOffset] = useState(0);
 
     const createListElements = () => {
         const elements = [];
         for (let i = 0; i < limit; i++) {
-            elements.push(<PokemonElement key={i} />);
+            elements.push(<PokemonElement key={i} pkmn={i + offset} />);
         }
         return elements;
     }
