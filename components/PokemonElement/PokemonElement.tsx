@@ -14,12 +14,8 @@ function PokemonElement(props: {pkmn: number}) {
         getPokemon().then(res => {
             setPokemon(res)
             setLoading(false);
-        }).catch(err => {
-            let something = "happen";
         });
     }, [props.pkmn]);
-
-
 
     const displayPokemon = () => {
         const flattenPokemonTypes = () => {
