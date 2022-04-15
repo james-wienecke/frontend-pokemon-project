@@ -29,4 +29,11 @@ describe("PokemonList component", () => {
         const bulbasaurItem = await screen.findByText(/bulbasaur/i);
         expect(bulbasaurItem).toBeInTheDocument();
     })
+
+    it("has button for moving to the next page of results", async () => {
+        render(<pokemonList />);
+
+        const nextPage = screen.findByLabelText(/next page/i);
+        expect(nextPage).toBeInTheDocument();
+    })
 })
