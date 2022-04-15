@@ -21,7 +21,7 @@ function PokemonElement(props: {pkmn: number}) {
     const displayPokemon = () => {
         const flattenPokemonTypes = () => {
             if (pokemon?.types != undefined) {
-                if (pokemon.types.length > 1) {
+                if (pokemon.types.length > 0) {
                     const types = [];
                     for (let type of pokemon.types) {
                         types.push(type.type.name);
