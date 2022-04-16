@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import PokeAPI, { IPokemon } from "pokeapi-typescript";
 import { Spinner } from "@chakra-ui/spinner";
+import { Badge } from "@chakra-ui/layout";
 
 function PokemonElement(props: {pkmn: number}) {
     const [pokemon, setPokemon] = useState<IPokemon>();
@@ -20,7 +21,7 @@ function PokemonElement(props: {pkmn: number}) {
     const displayPokemon = () => {
         const flattenPokemonTypes = () => {
             if (pokemon?.types != undefined) {
-                if (pokemon.types.length > 1) {
+                if (pokemon.types.length > 0) {
                     const types = [];
                     for (let type of pokemon.types) {
                         types.push(type.type.name);
@@ -29,13 +30,24 @@ function PokemonElement(props: {pkmn: number}) {
                 }
             }
         }
+
+        const typesToBadges = (types: string[] | undefined) => {
+            const badges = [];
+            if (types != undefined) {
+                for (let i = 0; i < types.length; i++) {
+                    badges.push(<Badge key={i}>{types[i]}</Badge>)
+                }
+            }
+            return badges;
+        }
+
         if (loading) {
             return <Spinner label={`Loading pokemon with id ${props.pkmn + 1}`} size="lg" />
         } else {
             return (
                 <>
                     <p>{pokemon?.id} {pokemon?.name}</p>
-                    <p>{flattenPokemonTypes()?.toString()}</p>
+                    {typesToBadges(flattenPokemonTypes())}
                     <img alt={pokemon?.name + " pokemon sprite image"} src={pokemon?.sprites.front_default} />
                 </>
             )
