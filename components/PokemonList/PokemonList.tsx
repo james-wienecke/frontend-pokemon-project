@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Button } from "@chakra-ui/button";
 import PokemonElement from "../PokemonElement";
 
 function PokemonList() {
@@ -17,8 +18,8 @@ function PokemonList() {
     return (
         <section data-testid="pokemon-list-container">
             {createListElements()}
-            <button onClick={() => offset > 0 ? setOffset(offset - limit) : null}>Previous</button>
-            <button onClick={() => setOffset(offset + limit)}>Next</button>
+            <Button onClick={() => offset > 0 ? setOffset(offset - limit) : null}>Previous</Button>
+            <Button onClick={() => setOffset(offset + limit)}>Next</Button>
         </section>
     )
 }
