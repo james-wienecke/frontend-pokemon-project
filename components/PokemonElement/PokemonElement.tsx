@@ -19,26 +19,43 @@ function PokemonElement(props: {pkmn: number}) {
     }, [props.pkmn]);
 
     const displayPokemon = () => {
-        const flattenPokemonTypes = () => {
-            if (pokemon?.types != undefined) {
-                if (pokemon.types.length > 0) {
-                    const types = [];
-                    for (let type of pokemon.types) {
-                        types.push(type.type.name);
-                    }
-                    return types;
-                }
+
+        const pokemonName = () => {
+            if (pokemon?.name != undefined) {
+                return pokemon.name[0].toLocaleUpperCase() + pokemon.name.substr(1);
             }
         }
 
-        const typesToBadges = (types: string[] | undefined) => {
-            const badges = [];
-            if (types != undefined) {
-                for (let i = 0; i < types.length; i++) {
-                    badges.push(<Badge key={i}>{types[i]}</Badge>)
+        const pokemonId = () => {
+            if (pokemon?.id != undefined) {
+                return `#${pokemon.id.toString().padStart(3, '0')}`;
+            }
+        }
+
+        const pokemonTypes = () => {
+            const flattenPokemonTypes = () => {
+                if (pokemon?.types != undefined) {
+                    if (pokemon.types.length > 0) {
+                        const types = [];
+                        for (let type of pokemon.types) {
+                            types.push(type.type.name);
+                        }
+                        return types;
+                    }
                 }
             }
-            return badges;
+    
+            const typesToBadges = (types: string[] | undefined) => {
+                const badges = [];
+                if (types != undefined) {
+                    for (let i = 0; i < types.length; i++) {
+                        badges.push(<Badge key={i}>{types[i]}</Badge>)
+                    }
+                }
+                return badges;
+            }
+
+            return typesToBadges(flattenPokemonTypes());
         }
 
         if (loading) {
@@ -46,8 +63,9 @@ function PokemonElement(props: {pkmn: number}) {
         } else {
             return (
                 <>
-                    <p>{pokemon?.id} {pokemon?.name}</p>
-                    {typesToBadges(flattenPokemonTypes())}
+                    <p>{pokemonId()}</p>
+                    <p>{pokemonName()}</p>
+                    {pokemonTypes()}
                     <img alt={pokemon?.name + " pokemon sprite image"} src={pokemon?.sprites.front_default} />
                 </>
             )
