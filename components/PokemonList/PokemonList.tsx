@@ -10,7 +10,9 @@ function PokemonList() {
     const createListElements = () => {
         const elements = [];
         for (let i = 0; i < limit; i++) {
-            elements.push(<PokemonElement key={i} pkmn={i + offset} />);
+            if (i + offset < 898) {
+                elements.push(<PokemonElement key={i} pkmn={i + offset} />);
+            }
         }
         return elements;
     }
