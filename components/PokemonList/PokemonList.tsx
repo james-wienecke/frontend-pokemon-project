@@ -17,6 +17,8 @@ function PokemonList() {
     return (
         <section data-testid="pokemon-list-container">
             {createListElements()}
+            <button onClick={() => offset > 0 ? setOffset(offset - limit) : null}>Previous</button>
+            <button onClick={() => setOffset(offset + limit)}>Next</button>
         </section>
     )
 }
